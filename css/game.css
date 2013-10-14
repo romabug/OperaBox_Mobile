@@ -1,0 +1,396 @@
+/********************************************************* 
+Opera BOX v1.0
+********************************************************** 
+The Source code can be found in:
+https://github.com/romabug/OperaBox
+  
+License of source code
+------------------------------------------------------------
+Copyright (C) 2012-2013 romabug, Hanchang Cai <hanchangcai@gmail.com>
+Cell: 0412 545 228   Sydney Australia
+***********************************************************/
+/* 查看原图 容器 圆角 *//* 拼图容器 */
+/* 小块   顶盖 圆角 */
+/* 小块 原图 圆角 *//* 查看原图 顶层渐变 和透明度 *//* -----------------------CSS 开始-------------------------------  */
+#haha {
+  background: gray;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#gbigbox {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  background: url(gbg.gif);
+  border: 3px solid gray;
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: #000000 3px 6px 13px;
+  -moz-box-shadow: #000000 3px 6px 13px;
+  box-shadow: #000000 3px 6px 13px;
+  behavior: url(/pie/PIE.htc);
+}
+#gbigbox_pic {
+  display: none;
+  position:relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 2px solid #FFF;
+  overflow:hidden;
+ 
+  z-index: 1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: #666666 1px 1px 5px;
+  -moz-box-shadow: #666666 1px 1px 5px;
+  box-shadow: #666666 1px 1px 5px;
+  behavior: url(/pie/PIE.htc);
+}
+#gbigbox_pic  .img_opacity {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  
+  
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.1) 26%, rgba(0,0,0,0.1) 74%, rgba(0,0,0,0.56) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.58)), color-stop(26%,rgba(0,0,0,0.1)), color-stop(74%,rgba(0,0,0,0.1)), color-stop(100%,rgba(0,0,0,0.56))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.58) 0%,rgba(0,0,0,0.1) 26%,rgba(0,0,0,0.1) 74%,rgba(0,0,0,0.56) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0.58) 0%,rgba(0,0,0,0.1) 26%,rgba(0,0,0,0.1) 74%,rgba(0,0,0,0.56) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0.58) 0%,rgba(0,0,0,0.1) 26%,rgba(0,0,0,0.1) 74%,rgba(0,0,0,0.56) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0.58) 0%,rgba(0,0,0,0.1) 26%,rgba(0,0,0,0.1) 74%,rgba(0,0,0,0.56) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94000000', endColorstr='#8f000000',GradientType=0 ); /* IE6-9 */
+
+  
+   
+
+  
+ 
+}
+#info {
+  overflow: hidden;
+  position: absolute ;
+  top: -30px;
+  height: 20px;
+  z-index: 220;
+  text-align: center;
+  padding-left: 15px;
+  color: #F60;
+  font-size: 14px;
+  line-height: 0.1em;
+}
+#iamhole {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+#iamhole p {
+  text-align: center;
+  font-size: 12px;
+  padding-top: 12px;
+}
+.pp0 {
+  left: 0px;
+  z-index: 50;
+  top: 0px;
+}
+.pp1 {
+  left: 100px;
+  z-index: 51;
+  top: 0px;
+}
+.pp2 {
+  left: 200px;
+  z-index: 52;
+  top: 0px;
+}
+.pp3 {
+  left: 0px;
+  z-index: 53;
+  top: 100px;
+}
+.pp4 {
+  left: 100px;
+  z-index: 54;
+  top: 100px;
+}
+.pp5 {
+  left: 200px;
+  z-index: 55;
+  top: 100px;
+}
+.pp6 {
+  left: 0px;
+  z-index: 56;
+  top: 200px;
+}
+.pp7 {
+  left: 100px;
+  z-index: 57;
+  top: 200px;
+}
+.pp8 {
+  left: 200px;
+  z-index: 58;
+  top: 200px;
+}
+.shadow_layer {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: -3px -3px 6px #000000 inset;
+  -moz-box-shadow: -3px -3px 6px #000000 inset;
+  -webkit-box-shadow: -3px -3px 6px #000000 inset;
+  behavior: url(/pie/PIE.htc);
+}
+.tu_public {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  cursor: pointer;
+  background-repeat: repeat;
+}
+.tu_public:hover {
+  margin-left: -2px;
+  margin-top: -2px;
+  box-shadow: 5px 5px 14px #000000;
+  -moz-box-shadow: 5px 5px 14px #000000;
+  -webkit-box-shadow: 5px 5px 14px #000000;
+  z-index: 100;
+}
+#tu_0 {
+  background-position: 0  0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px #000000;
+  -moz-box-shadow: 2px 2px 10px #000000;
+  -webkit-box-shadow: 2px 2px 10px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+#tu_1 {
+  background-position: -100px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px #000000;
+  -moz-box-shadow: 2px 2px 10px #000000;
+  -webkit-box-shadow: 2px 2px 10px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+#tu_2 {
+  background-position: -200px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px #000000;
+  -moz-box-shadow: 2px 2px 10px #000000;
+  -webkit-box-shadow: 2px 2px 10px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+#tu_3 {
+  background-position: 0 -100px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px #000000;
+  -moz-box-shadow: 2px 2px 10px #000000;
+  -webkit-box-shadow: 2px 2px 10px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+#tu_4 {
+  background-position: -100px -100px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px #000000;
+  -moz-box-shadow: 2px 2px 10px #000000;
+  -webkit-box-shadow: 2px 2px 10px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+#tu_5 {
+  background-position: -200px -100px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px #000000;
+  -moz-box-shadow: 2px 2px 10px #000000;
+  -webkit-box-shadow: 2px 2px 10px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+#tu_6 {
+  background-position: 0 -200px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px #000000;
+  -moz-box-shadow: 2px 2px 10px #000000;
+  -webkit-box-shadow: 2px 2px 10px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+#tu_7 {
+  background-position: -100px -200px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px; 
+  border-radius: 6px;
+  box-shadow: 2px 2px 10px #000000;
+  -moz-box-shadow: 2px 2px 10px #000000;
+  -webkit-box-shadow: 2px 2px 10px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+.click_effect2 {
+  box-shadow: 23px 7x 34px #000000;
+  -webkit-box-shadow: 23px 7x 34px #000000;
+  -moz-box-shadow: 23px 7x 34px #000000;
+  behavior: url(/pie/PIE.htc);
+}
+
+#turl {
+  font-size: 12px;
+  width: 110px;
+   
+}
+#pic_url {
+	clear:both;
+	display:block;
+	float:left;
+	margin-top:29px;
+	margin-bottom:12px;
+ 
+    margin-left:5px;
+}
+ 
+.guomeimei
+{
+	margin-top:15px;} 
+ 
+.guomeimei p {
+ 
+}
+
+.guomeimei .range_l
+
+ {
+	  margin-left:5px;
+	 margin-right:0px;
+	 float:left;
+	 width:35%;
+	 overflow:auto;
+	 padding:0;
+ 	
+	}
+	
+.range_l input {
+	width:85%;
+	}	
+	
+.guomeimei .range_r
+{ 
+ 
+ margin-left:25px;
+	float:left;
+	 width:45%;
+	 overflow:auto;
+		 padding:0;
+	}
+.range_r input {
+	margin-right:6px;
+	
+	}	 
+	
+
+/*NICE BUTTON SKIN*/
+.button_f {
+  color: #fff;
+  padding: 8px 14px 10px;
+  background-color: #bc1815;
+  border: none;
+  margin-right: 25px;
+  position: relative;
+  -webkit-user-select: none;
+  -webkit-box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  -moz-text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+.button_f:active {
+  position: relative;
+  top: 3px;
+  -webkit-box-shadow: inset 0px -3px 1px #ffffff, inset 0 0px 3px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: inset 0px -3px 1px #ffffff, inset 0 0px 3px rgba(0, 0, 0, 0.9);
+  box-shadow: inset 0px -3px 1px #ffffff, inset 0 0px 3px rgba(0, 0, 0, 0.9);
+}
+.button_f:active:after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+}
+.button_f.blue {
+  background: #22C3EB;
+}
+.button_f.green {
+  background: #67b600;
+}
+.button_f.orange {
+  background: #da8a00;
+}
+.button_f.yellow {
+  background: #b3a400;
+}
+.button_f.turquoise {
+  background: #00b1af;
+}
+.button_f:last-of-type {
+  margin: 0;
+}
+.button_f.gradient {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.1, rgba(0, 0, 0, 0.3)), color-stop(1, rgba(255, 255, 255, 0.2)));
+  background-image: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.3) 1%, rgba(255, 255, 255, 0.2) 100%);
+  background-image: gradient(center bottom, rgba(0, 0, 0, 0.3) 1%, rgba(255, 255, 255, 0.2) 100%);
+}
+.button_f.gradient:hover {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.1, rgba(0, 0, 0, 0.45)), color-stop(1, rgba(255, 255, 255, 0.3)));
+  background-image: -moz-linear-gradient(center bottom, rgba(0, 0, 0, 0.45) 1%, rgba(255, 255, 255, 0.3) 100%);
+  background-image: gradient(center bottom, rgba(0, 0, 0, 0.45) 1%, rgba(255, 255, 255, 0.3) 100%);
+}

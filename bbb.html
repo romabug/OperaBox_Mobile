@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+ <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" /> 
+ 
+   
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>THIS IS A DEMO</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  
+  <script>
+  $(document).ready(function(e) {
+    
+
+  
+  $('input#file_api').change(function(evt){
+	  
+	  
+       var image = evt.target.files[0];
+        var reader = new FileReader();
+    reader.onerror  = (function(){alert('error reading file')});
+        reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var tempImg = new Image();
+        
+          tempImg.src = reader.result;
+          tempImg.onload = function(){
+             var canvas = document.createElement('canvas');
+			 
+     canvas.width= 300;
+    canvas.height= 300;
+              var ctx = canvas.getContext("2d");
+			  
+//重要参数			  
+  var bili = tempImg.height / tempImg.width;			 
+ var x = 0; 
+  var y = 0;  
+  var width = 300;
+  var height = width * bili;  	 
+ 
+			  
+   //photo is in portrait    长宽 比例 调整
+     if(tempImg.width > tempImg.height){
+     //  ctx.translate(canvas.width/2,canvas.height/2);
+       //    ctx.rotate(90* Math.PI/180);
+           //    canvas.width = tempImg.height;
+            //   canvas.height = tempImg.width;
+  var bili = tempImg.height / tempImg.width;			 
+      height = 300;	  width = height / bili ;
+ 
+	
+			 } ;
+				 
+
+ 
+
+ 
+                  
+    ctx.drawImage(tempImg,x, y, width,height ); 
+   
+           // create an img tag and attach the photo
+              $('body').append(canvas);
+       
+          }
+        } 
+      })(image);
+      reader.readAsDataURL(image);
+ 	  
+	  	  //    var dataURL = $("canvas").get(0).toDataURL();
+		  //     $("#jj").attr("src",dataURL );
+    
+	  
+});
+
+
+$("#hit").click(function(e) {
+	//$("canvas").html();
+	      var dataURL = $("canvas").get(0).toDataURL();
+		  //     $("#jj").attr("src",dataURL );
+			   
+ 	var  temp_url ="url(" +dataURL  + ")" ;
+	 $("#gg2").css("background-image",temp_url  );  
+ 	$("#jj").attr("src",dataURL);
+ 
+	
+});
+
+
+
+  
+ }); 
+   
+  </script>
+
+</head>  
+<body>  
+
+<input type="file" name="wine_photo[photo]" accept="image/*" id="file_api" />
+
+<button   id="hit" > HIT ME</button>
+
+<div id="gg">  <img id="jj"   src=""  />  </div>
+  
+    <div id="gg2" style="width:300px; margin:40px; height:300px; overflow:hidden"> background is down  </div>  
+
+  
+</body>
+</html>

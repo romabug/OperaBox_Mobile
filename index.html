@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+ <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" /> 
+ 
+   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->   
+   <link rel="stylesheet" type="text/css" href="css/game.css"/>
+   
+   <link rel="stylesheet" type="text/css" href="css/gg2.css"/>
+   
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+   <script   src="js/game.js"></script>  
+   <script   src="js/game_libs.js"></script>     
+
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>      
+  
+<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+
+  <!--  <script src="js/es5-shim.min.js"></script>   --> 
+   <!--果您需要在IE6、7、8中使用，请先在引入less.js前先引入es5-shim  -->
+  <script src="js/less.js"></script>
+     <link rel="stylesheet/less" href="css/game.less" /> 
+ 
+   
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>THIS IS A DEMO</title>
+ 
+
+</head>  
+<body>  
+
+  <div id="gbigbox_pic">
+<div class="img_opacity"></div> 
+</div>     
+  <div id="gamehouse" style="   position:relative; " >
+ 
+
+
+
+ 
+<div id="gbigbox_pic_inner_tmp" ></div>   
+
+ 
+<div id="gbigbox" >
+ <div id="gbigbox_2" >
+
+<!--
+<div id="gbigbox_pic_inner" ></div> 
+<div id="gbigbox_pic_inner_tmp2" ></div> 
+ -->
+
+ <div id="temp_hole_cover" class="tu_public pp8"> <div class="shadow_layer"> </div> </div> 
+
+
+<div id="iamhole" mark="pp8"  class="pp8 ">  </div>
+
+  <div id="tu_0" mark="pp0" class="tu_public pp0 "><div class="shadow_layer"> </div>  </div>
+<div id="tu_1" mark="pp1" class="tu_public  pp1 "> <div class="shadow_layer"></div> </div>
+<div id="tu_2" mark="pp2"  class="tu_public  pp2 "><div class="shadow_layer"></div>  </div>
+<div id="tu_3" mark="pp3" class="tu_public  pp3 "><div class="shadow_layer"></div> </div>
+<div id="tu_4" mark="pp4" class="tu_public  pp4"><div class="shadow_layer"></div>  </div>
+<div id="tu_5" mark="pp5" class="tu_public  pp5 "><div class="shadow_layer"></div>  </div>
+<div id="tu_6" mark="pp6" class="tu_public  pp6"><div class="shadow_layer"></div>  </div>
+<div id="tu_7" mark="pp7" class="tu_public  pp7 "><div class="shadow_layer"></div>  
+
+
+
+</div>
+ 
+</div>
+
+</div>
+ 
+
+
+
+<div id="game_tool">
+
+ <button id="restart" class="button_g"   > ReStart </button>
+ <button id="hitme"  class="button_g"  >Shake it </button>
+
+  <button id="insertpic"  class="button_g" > Next pic   </button>
+
+<button id="toumiao"  class="button_g"     > View pic</button>
+   </div>  
+
+<!-- RANGE CONTROL TOOLS START-->   
+<div class="guomeimei"  >
+
+<div class="range_l">
+    Block Pattern 
+ <br />  
+  <input id="block_radius" type="range"   min="0" max="56" value="6"  >   
+<br/> <br />
+
+   <input id="block_top_shadow" type="range"  min="-6" max="3" value="-3"  >   
+<br/>   <br />
+ 
+   <input id="block_top_density" type="range"   min="2" max="24" value="6"  >    <br>
+
+</div>
+ 
+ 
+<div class="range_r">
+  Motion Style:  <br>
+<label >
+<input type="radio" name="myspeed"  value="easeOutQuart" /> A
+</label>
+<label >
+ <input type="radio" name="myspeed"   value="easeInCubic" /> B
+ </label> 
+ <label >
+<input type="radio" name="myspeed" checked  value="easeOutBounce"  />  C       </label>
+
+   
+  <br><br>
+<label  class="range_me"  > Motion Speed: <input id="block_speed" type="range"   min="80" max="800" value="250"  />  </label> 
+ </div>
+ 
+ <div id="pic_url"  >
+ <label > 把手机上照片放入拼图中 <br> 
+ 
+ <div class="select_file" >
+<input type="file"   accept="image/*" id="file_api" > </div>  </label> 
+
+
+  <button  class="confirm button_g" style="display:none; margin-left:6px;"  >OK确定</button>
+ 
+ 
+<!--   <button  class="tempbtn2 button_g"  >X </button>  -->
+ 
+  
+ </div>
+
+
+  
+  </div>   <!-- END guomeimei -->
+  
+  
+  
+  
+   
+ </div>
+ 
+</body>
+</html>

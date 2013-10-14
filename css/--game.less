@@ -1,0 +1,396 @@
+ /********************************************************* 
+Opera BOX v1.0
+********************************************************** 
+The Source code can be found in:
+https://github.com/romabug/OperaBox
+  
+License of source code
+------------------------------------------------------------
+Copyright (C) 2012-2013 romabug, Hanchang Cai <hanchangcai@gmail.com>
+Cell: 0412 545 228   Sydney Australia
+***********************************************************/
+ 
+ 
+ 
+@radius_a: 5px;  @shadow_a: #666 1px 1px 5px;    /* 查看原图 容器 圆角 */     
+  
+@radius_b: 5px;    @shadow_b: #000 3px 6px  13px;    /* 拼图容器 */
+  
+@radius_c: 6px;  @shadow_c: -3px -3px 6px #000 inset ;     /* 小块   顶盖 圆角 */
+
+@radius_d: 6px;  @shadow_d: 2px 2px 10px #000 ;   /* 小块 原图 圆角 */ 
+                
+			     @shadow_d_hover: 5px 5px 14px #000 ;  
+				  
+				 @fly: 23px 7x 34px #000;   
+			     
+  
+	
+.tu_hover () {				 
+     box-shadow: @shadow_d_hover ;
+	-moz-box-shadow:  @shadow_d_hover ;
+	-webkit-box-shadow: @shadow_d_hover ;
+   }
+				     
+
+ .click_effect_fly ()  {
+	
+ box-shadow: @fly ;
+ -webkit-box-shadow: @fly ;
+ -moz-box-shadow: @fly ;
+  behavior: url(/pie/PIE.htc);
+    
+  }
+
+ .gbigbox_pic_radius ()                 /* 查看原图 容器 */ 
+ {
+    -webkit-border-radius: @radius_a;
+    -moz-border-radius: @radius_a;
+    -ms-border-radius: @radius_a;
+    -o-border-radius: @radius_a;
+    border-radius: @radius_a;
+ 
+	  
+	-webkit-box-shadow:@shadow_a;
+ -moz-box-shadow: @shadow_a;
+box-shadow: @shadow_a;  
+  behavior: url(/pie/PIE.htc);
+ 	  
+}
+
+
+   /* 查看原图 顶层渐变 和透明度 */ 
+.gbigbox_pic_toplayer_gradient (@myvalue: #FFC,  @myvalue2: #F60 , @myopacity:0.2)	
+{
+ // background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFFFFF), to(#999));
+background: -webkit-linear-gradient(@myvalue, @myvalue2);
+background: -moz-linear-gradient(@myvalue,  @myvalue2);
+background: -ms-linear-gradient(@myvalue, @myvalue2);
+background: -o-linear-gradient(@myvalue, @myvalue2); 
+background: linear-gradient(@myvalue, @myvalue2); 
+-pie-background: linear-gradient(@myvalue , @myvalue2);
+ 
+      opacity:@myopacity;
+  -webkit-opacity: @myopacity;          
+  -moz-opacity: @myopacity;  
+   behavior: url(/pie/PIE.htc);
+  }
+
+ 
+   
+
+.gbigbox_radius ( )     /* 拼图 大容器 */
+{
+    -webkit-border-radius: @radius_b;
+    -moz-border-radius: @radius_b;
+    -ms-border-radius: @radius_b;
+    -o-border-radius: @radius_b;
+    border-radius: @radius_b;
+	
+-webkit-box-shadow:@shadow_b;
+ -moz-box-shadow: @shadow_b;
+box-shadow: @shadow_b;
+ behavior: url(/pie/PIE.htc);
+	
+	
+}
+
+
+.shadow_layer_block_radius ( )   /* 小块顶层 圆角 */
+{
+    -webkit-border-radius: @radius_c;
+    -moz-border-radius: @radius_c;
+    -ms-border-radius: @radius_c;
+    -o-border-radius: @radius_c;
+    border-radius: @radius_c;
+	
+	  
+   box-shadow: @shadow_c;
+ 	-moz-box-shadow: @shadow_c;
+	-webkit-box-shadow: @shadow_c;
+	
+ 
+	 behavior: url(/pie/PIE.htc);
+	
+}
+
+ .tu_public_radius ( )    /* 小块 原图 圆角 */
+{
+    -webkit-border-radius: @radius_d;
+    -moz-border-radius: @radius_d;
+    -ms-border-radius: @radius_d;
+    -o-border-radius: @radius_d;
+    border-radius: @radius_d;
+    
+	  box-shadow: @shadow_d;
+   	-moz-box-shadow: @shadow_d;
+ -webkit-box-shadow: @shadow_d;
+	
+  behavior: url(/pie/PIE.htc);
+}
+
+.click_effect_a () {	
+
+ box-shadow:@clickeffect;
+ 	-moz-box-shadow: @clickeffect;
+	-webkit-box-shadow: @clickeffect;
+	 behavior: url(/pie/PIE.htc);
+	}  
+
+
+
+
+  
+ 
+/* -----------------------CSS 开始-------------------------------  */
+
+
+ #haha { background: gray;   margin:0; padding:0;  position:relative;}  
+  
+#gbigbox { width: 300px; height:300px;
+overflow:hidden;
+background: url(gbg.gif);
+ border:3px solid gray;   position:relative; z-index:2; margin-top:30px;
+  .gbigbox_radius;
+
+   
+ 
+ }
+ 
+   
+#gbigbox_pic { 
+display:none;
+
+width: 300px; height:300px;    
+overflow:hidden;
+  border: 2px solid #FFF;   position:absolute; z-index:1;
+ .gbigbox_pic_radius ;
+ 
+ 
+ 
+   }
+ 
+#gbigbox_pic .img_opacity   
+{
+	position:absolute;
+	width:100%;
+	height:100%;
+ 	background: #FFFFFF;
+	
+	
+.gbigbox_pic_toplayer_gradient;
+  
+ 
+  
+}
+   
+   
+  
+.iamhole { }
+
+#info { overflow:hidden;  
+   position:absolute ; top:-30px; height:20px;
+   z-index:220;   
+  text-align:center;
+  padding-left:15px; 
+color:#F60;
+ font-size:14px; line-height:0.1em;} 
+
+#iamhole {  
+
+position:absolute; width:100px; height:100px; 
+ 
+ 
+}
+#iamhole p { text-align:center; font-size:12px; padding-top:12px;} 
+ 
+
+.pp0 {
+  left: 0px;   z-index:50;
+  top: 0px;
+ 
+}
+.pp1 {
+  left: 100px;  z-index:51;
+  top: 0px;
+}
+.pp2 {
+  left: 200px;  z-index:52;
+  top: 0px;
+}
+.pp3 {
+  left: 0px;    z-index:53;
+  top: 100px;
+}
+.pp4 {
+  left: 100px;    z-index:54;
+  top: 100px;
+}
+.pp5 {
+  left: 200px;    z-index:55;
+  top: 100px;
+}
+.pp6 {
+  left: 0px;  z-index:56;
+  top: 200px;
+}
+.pp7 {
+  left: 100px;  z-index:57;
+  top: 200px;
+}  
+.pp8 {
+  left: 200px;  z-index:58;
+  top: 200px;
+}
+
+ 
+
+.shadow_layer  { position:absolute;
+  width:100px; height:100px; 
+ 
+  .shadow_layer_block_radius ;
+ 
+ 
+ }
+  
+
+
+ .tu_public {  
+  width:100px;  height:100px;  position: absolute;  cursor: pointer;
+  
+ background-repeat:repeat;
+
+ 
+ } 
+
+ 
+.tu_public:hover {
+ 
+ 	 margin-left:-2px; margin-top:-2px; 
+	 
+ .tu_hover ;
+   z-index:100;
+ 
+   }
+   
+
+#tu_0    { background-position: 0  0;     .tu_public_radius ;  }  
+#tu_1  {  background-position:  -100px  0 ;     .tu_public_radius ; }  
+#tu_2  { background-position:   -200px  0 ;     .tu_public_radius ; }
+
+#tu_3 {  background-position:  0 -100px;    .tu_public_radius ; }
+#tu_4 {  background-position: -100px -100px;    .tu_public_radius ; }
+#tu_5 {  background-position:    -200px -100px;     .tu_public_radius ;}
+#tu_6  {  background-position:   0 -200px;    .tu_public_radius ; }
+#tu_7  {  background-position:  -100px -200px;     .tu_public_radius ;}
+ 
+ 
+  
+	
+.click_effect {	
+ 
+ 
+}
+
+ .click_effect2 {
+ 
+ .click_effect_fly ;
+ 
+ 
+  	}
+
+ #restart, #hitme, #toumiao, #surl { 
+font-size:15px; text-align:center;
+   cursor:pointer;
+}
+
+ 
+ 
+ #turl { font-size:13px; width:200px;
+height:30px; border:2px  #FF6600 solid; color:  #FF6600}
+
+	
+#pic_url { margin-top:45px;}
+#pic_url span { font-size:12px; display:block;  }
+
+.guomeimei  p { display:block; margin-top:16px; color:#FF6600;} 
+
+#game_tool 
+ { margin-top:21px;}
+ 
+ 
+ 
+ /*NICE BUTTON SKIN*/
+ 
+.button_g { color: #fff; padding: 8px 14px 10px; background-color: #bc1815; border: none; margin-right: 25px; position: relative;;
+		-webkit-user-select: none;
+		-webkit-box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+		-moz-box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+		box-shadow: inset 0px -3px 1px rgba(0, 0, 0, 0.45), 0px 2px 2px rgba(0, 0, 0, 0.25);
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+		-moz-text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+		text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+			 }
+			 
+	.button_g:active { position: relative; top: 3px;
+	    -webkit-box-shadow: inset 0px -3px 1px rgba(255, 255, 255, 1), inset 0 0px 3px rgba(0, 0, 0, 0.9);
+	    -moz-box-shadow: inset 0px -3px 1px rgba(255, 255, 255, 1), inset 0 0px 3px rgba(0, 0, 0, 0.9);
+	    box-shadow: inset 0px -3px 1px rgba(255, 255, 255, 1), inset 0 0px 3px rgba(0, 0, 0, 0.9);
+	}
+	
+	.button_g:active:after { content: ""; width: 100%; height: 3px; background: #fff; position: absolute; bottom: -1px; left: 0; }
+
+	
+	.button_g.blue { background: #22C3EB; }
+	.button_g.green { background: #67b600; }
+	.button_g.orange { background: #da8a00; }
+	.button_g.yellow { background: #b3a400; }
+	.button_g.turquoise { background: #00b1af; }
+	
+	.button_g:last-of-type { margin: 0; }
+
+	.button_g.gradient {
+		background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(0.1, rgba(0,0,0,0.3)),
+			color-stop(1, rgba(255,255,255,0.2))
+		);
+		background-image: -moz-linear-gradient(
+			center bottom,
+			rgba(0,0,0,0.3) 1%,
+			rgba(255,255,255,0.2) 100%
+		);
+		background-image: gradient(
+			center bottom,
+			rgba(0,0,0,0.3) 1%,
+			rgba(255,255,255,0.2) 100%
+		);
+	}
+	
+	.button_g.gradient:hover {
+		background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(0.1, rgba(0,0,0,0.45)),
+			color-stop(1, rgba(255,255,255,0.3))
+		);
+		background-image: -moz-linear-gradient(
+			center bottom,
+			rgba(0,0,0,0.45) 1%,
+			rgba(255,255,255,0.3) 100%
+		);
+		background-image: gradient(
+			center bottom,
+			rgba(0,0,0,0.45) 1%,
+			rgba(255,255,255,0.3) 100%
+		);
+	}
+	
+	
+	
